@@ -12,8 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addReceiver, deleteItem, getListDatas, moveFiles, moveToTrash, restoreItem } from '../../../actions/rootAction';
 import MentionsComponent from './MentionsComponent';
 import TreeSelectCustom from './TreeSelectCustom';
-// const { Header, Sider } = Layout;
-// const { Search } = Input;
+import { saveAs } from 'file-saver';
 
 const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 
@@ -46,7 +45,7 @@ const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 		let new_data = datas.filter(f => listRowKeys.includes(f.id));
 		if (type === 'shared') {
 			new_data.map(f => {
-				name.push(f.name);
+				name.push(f.name+'.'+f.extension);
 				if (f.kind === 'videos')
 					links.push(headURI + '/Videos/' + f.file_sk + '.' + f.extension)
 				else if (f.kind === 'pictures')
@@ -56,7 +55,7 @@ const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 			})
 		} else {
 			new_data.map(f => {
-				name.push(f.name);
+				name.push(f.name+'.'+f.extension);
 				if (f.extension === 'mp4')
 					links.push(headURI + '/Videos/' + f.file_sk + '.' + f.extension)
 				else if (f.extension === 'mp3')
@@ -65,7 +64,6 @@ const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 					links.push(headURI + '/Pictures/' + f.file_sk + '.' + f.extension)
 			})
 		}
-		// console.log(links);
 		const a = document.createElement('a');
 		a.style.display = 'none';
 		let i = 0;
