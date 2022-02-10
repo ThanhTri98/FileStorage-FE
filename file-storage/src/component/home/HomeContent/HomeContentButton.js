@@ -12,7 +12,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { addReceiver, deleteItem, getListDatas, moveFiles, moveToTrash, restoreItem } from '../../../actions/rootAction';
 import MentionsComponent from './MentionsComponent';
 import TreeSelectCustom from './TreeSelectCustom';
-import { saveAs } from 'file-saver';
+// import { saveAs } from 'file-saver';
 
 const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 

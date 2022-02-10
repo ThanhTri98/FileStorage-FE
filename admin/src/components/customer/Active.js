@@ -42,16 +42,13 @@ export default function Active({ is_active, email }) {
   );
   const onOpen = (isActive = false) =>
     (event) => {
-      if (isActive) {
-        // setOkAdd(true)
-      
+      if (isActive) {   
         setTitle(
           <p>
             Kích hoạt <b>Tài khoản</b> cho người này!
           </p>
         );
       } else {
-        // setOkAdd(false)
         setTitle(
           <p>
             Ngưng kích hoạt <b>Tài khoản</b> của người này!
@@ -108,9 +105,9 @@ export default function Active({ is_active, email }) {
         )}
       </Popper>
       {is_active === false ? (
-        <div onClick={onOpen()}><Chip size="medium" label="Tạm ẩn" style={{ cursor: 'pointer' }} /></div>
+        <div onClick={onOpen(true)}><Chip size="medium" label="Tạm ẩn" style={{ cursor: 'pointer' }} /></div>
       ) : (
-          <div onClick={onOpen()}>
+          <div onClick={onOpen(false)}>
         <Chip
           label="Hoạt động"
           size="medium"
