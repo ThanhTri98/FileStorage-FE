@@ -33,6 +33,9 @@ const HomeContentButton = ({ listRowKeys, setGiveListKey }) => {
 	useEffect(() => {
 		setKeys(listRowKeys);
 	}, [listRowKeys])
+
+
+	
 	const handleDelete = () => {
 		dispatch(moveToTrash(listRowKeys, datas, users.username, users.token, type));
 	};

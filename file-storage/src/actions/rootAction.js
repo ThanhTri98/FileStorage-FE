@@ -164,10 +164,10 @@ export const getListDatas = (typeFile, user, parent, state = 1, shared) => (disp
                     data.sort((a, b) => { return new Date(b.modifyDate) - new Date(a.modifyDate) });
                 dispatch({ type: GET_LIST_SUCCESS, payload: data });
             }).catch(() => {
-                dispatch({ type: LOGOUT });
+                // dispatch({ type: LOGOUT });
             });
     } catch (error) {
-        dispatch({ type: LOGOUT });
+        // dispatch({ type: LOGOUT });
     }
 };
 const formatDateTime = () => {
